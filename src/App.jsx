@@ -1,9 +1,9 @@
-import "./App.scss";
 import { Routes, Route } from "react-router";
+import Sidebar from "./components/Sidebar/Sidebar";
 function App() {
   return (
     <>
-      <h1>Keep on going!</h1>
+      <Sidebar />
     </>
   );
 }
