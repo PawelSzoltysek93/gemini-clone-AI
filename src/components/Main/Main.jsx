@@ -77,6 +77,7 @@ const Main = () => {
               placeholder="Enter a prompt here"
               onKeyDown={(e) => {
                 if (e.key === "Enter" && !e.shiftKey) {
+                  /* CONFIRM WITH ENTER */
                   e.preventDefault();
                   onSent();
                   setInput([]);
@@ -86,8 +87,11 @@ const Main = () => {
             <div>
               <img src={assets.gallery_icon} alt="" />
               <img src={assets.mic_icon} alt="" />
-              <img onClick={() => onSent()} src={assets.send_icon} alt="" />
-            </div>
+              {input ? (
+                <img onClick={() => onSent()} src={assets.send_icon} alt="" />
+              ) : null}
+            </div>{" "}
+            {/* SEND WITH IMG*/}
           </div>
           <p className="bottom-info">
             Gemini may display inaccurate info, including about people, so
