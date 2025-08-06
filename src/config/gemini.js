@@ -11,17 +11,10 @@ const genAI = new GoogleGenerativeAI(API_KEY);
 async function runChat(prompt) {
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-  try {
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text();
-
-    console.log(text);
-    return text; // Zwróć tekst, aby móc go użyć w komponencie React
-  } catch (error) {
-    console.error("Error", error);
-    return "Error";
-  }
+  const result = await model.generateContent(prompt);
+  const response = result.response;
+  console.log(response.text());
+  return response.text;
 }
 
 export default runChat;
