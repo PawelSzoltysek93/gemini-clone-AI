@@ -75,6 +75,13 @@ const Main = () => {
               value={input}
               type="text"
               placeholder="Enter a prompt here"
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault();
+                  onSent();
+                  setInput([]);
+                }
+              }}
             />
             <div>
               <img src={assets.gallery_icon} alt="" />

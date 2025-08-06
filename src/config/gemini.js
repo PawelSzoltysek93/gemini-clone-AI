@@ -13,8 +13,9 @@ async function runChat(prompt) {
 
   const result = await model.generateContent(prompt);
   const response = result.response;
-  console.log(response.text());
-  return response.text;
+  const text = await response.text();
+  console.log("AI response: ".text);
+  return text;
 }
 
 export default runChat;
